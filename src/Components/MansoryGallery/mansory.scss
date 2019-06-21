@@ -1,0 +1,97 @@
+// $color-text-primary:#F2274C;
+$color-text-primary: #F2AB27;
+$color-text-secondary: #F2AB27;
+// $color-primary:#40163D;
+$color-primary: #323E40;
+
+@function randomNum($min, $max) {
+    $rand: random();
+    $randomNum: $min + floor($rand * (($max - $min) + 1));
+  
+    @return $randomNum;
+  }
+
+h1{
+    font-size: 50px;
+}
+
+.loader{
+    position: absolute;
+    top: 30%;
+    left:35%
+}
+
+.searchBar{
+    height: 2rem;
+    width: 80%;
+    border-radius: 1rem;
+    margin: 2rem 4rem;
+    padding: 0.5rem;
+    font-size: 1rem
+}
+
+$var: #{randomNum(400, 700)};
+
+.mansoryCard{
+
+    width: 10rem;
+    height:$var px;
+    line-height: $var px;
+
+
+
+    position: relative;
+    background-color: $color-primary;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 1rem;
+    &:hover{
+        .description-box{
+            transition: all 0.6s ease-out;
+            transform: scaleX(1);
+        }
+        .mansoryImage{
+            transform: scale(1.25, 1.25);
+            opacity: 0.7;
+        }
+    }
+}
+
+.mansoryImage{
+
+    width: 100%;
+    max-height: 100%;
+
+
+
+    transition: all 1.5s ease-in-out ;
+}
+
+.description-box{
+    line-height: normal;
+    position: absolute;
+    max-height: 100%;
+    height:100%;
+    width:100%;
+    transition: all 0.6s ease-out;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center ;
+    transform: ScaleX(0.000001);
+    background-color: transparentize($color: #000000, $amount: 0.6);
+    text-align: center;
+}
+
+.cardHeader{
+    font-weight: 700;
+    font-size: 1rem;
+    color: $color-text-primary;
+}
+
+.cardDetails{
+    color:$color-text-secondary
+}
