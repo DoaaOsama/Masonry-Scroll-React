@@ -1,4 +1,5 @@
 import React from 'react';
+// import LazyLoad from 'react-lazy-load';
 
 export default function MansoryCard(props) {
 
@@ -8,7 +9,14 @@ export default function MansoryCard(props) {
         : props.image);
     return (
         <div className="mansoryCard">
+            {/* <LazyLoad
+                width={100}
+                height={100}
+                debounce={false}
+                offsetVertical={500}
+            > */}
             <img className="mansoryImage" src={image} alt="img" />
+            {/* </LazyLoad> */}
             <div className="description-box description-box__text-primary">
                 <h3 className="cardHeader">{amiiboSeries}</h3>
                 <h3 className="cardHeader">Game Series: <span className="cardDetails">{gameSeries}</span></h3>

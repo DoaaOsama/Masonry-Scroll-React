@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MasonryLayout from 'react-masonry-layout';
+
 import axios from 'axios';
 import './mansory.scss';
 import MansoryCard from './Card';
@@ -31,8 +32,8 @@ class MansoryListing extends Component {
             const data = Rendereddata.data.amiibo;
             this.setState({ data, loading: false }, () => {
                 this.setState({
-                    currentItems: this.state.data.filter((item, index) => index >= this.state.endPosition && index < this.state.endPosition + 100),
-                    endPosition: 100
+                    currentItems: this.state.data.filter((item, index) => index >= this.state.endPosition && index < this.state.endPosition + 50),
+                    endPosition: 50
                 })
             });
         }
@@ -56,10 +57,10 @@ class MansoryListing extends Component {
 
     loadItems() {
         this.setState({
-            currentItems: this.state.currentItems.concat(this.state.data.filter((item, index) => index >= this.state.endPosition && index < this.state.endPosition + 100))
+            currentItems: this.state.currentItems.concat(this.state.data.filter((item, index) => index >= this.state.endPosition && index < this.state.endPosition + 50))
         }, () => {
-            if (!(this.state.endPosition + 100 > this.state.data.length))
-                this.setState({ endPosition: this.state.endPosition + 100 })
+            if (!(this.state.endPosition + 50 > this.state.data.length))
+                this.setState({ endPosition: this.state.endPosition + 50 })
             else
                 this.setState({
                     infiniteScrollEnd: true
@@ -83,9 +84,9 @@ class MansoryListing extends Component {
                         id="masonry-layout"
                         infiniteScroll={this.loadItems}
                         // infiniteScrollLoading={true}
-                        infiniteScrollDistance={700}
+                        infiniteScrollDistance={10}
                         infiniteScrollEnd={this.state.infiniteScrollEnd}
-                        sizes={[{ columns: 2, gutter: 20 }, { mq: '600px', columns: 3, gutter: 20 }, { mq: '700px', columns: 4, gutter: 20 }, { mq: '900px', columns: 5, gutter: 20 }, { mq: '1024px', columns: 7, gutter: 12 }]}
+                        sizes={[{ columns: 2, gutter: 20 }, { mq: '600px', columns: 3, gutter: 20 }, { mq: '750px', columns: 4, gutter: 20 }, { mq: '1024px', columns: 6, gutter: 25 }]}
                     >
                         {currentItems.map((data, i) =>
                             <MansoryCard key={i} {...data}></MansoryCard>

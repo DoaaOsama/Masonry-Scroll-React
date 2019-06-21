@@ -70,6 +70,10 @@ $var: #{randomNum(400, 700)};
     transition: all 1.5s ease-in-out ;
 }
 
+#masonry-layout{
+    margin: 5rem;
+}
+
 .description-box{
     line-height: normal;
     position: absolute;
